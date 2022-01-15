@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" /> 
+    <link rel="stylesheet" href="./simplelightbox-master/src/simple-lightbox.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/1.17.2/simplelightbox.min.css">
+    <title>Dj.Nav official website</title>
+    <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body class="shop-body">
+    <header>
+      <input type="checkbox" id="nav-toggle-checkbox" class="nav-toggle">
+        <a href="index" class="logo"> Dj N<i class="fab fa-napster">V</i></a>
+        <i class="fas fa-shopping-cart cart-icon cart-btn"></i>
+    
+    <nav class="nav-links">  
+      <ul>    
+       <li> <a href="#" class="hide-on-small-screen">MUSIC ALBUMS</a> </li>
+       <li> <a href="#" class="hide-on-small-screen">HOODIES</a></li>
+       <li> <a href="#" class="hide-on-small-screen">T-SHIRTS</a></li>
+       <li> <a href="#" class="hide-on-small-screen">EVENTS</a></li>
+       <li> <a class="hide-on-small-screen cart-btn">CART<i class="fas fa-shopping-cart fa-lg"></i></a> </li>
+       </ul>
+     </nav>
+     
+    </header>
+    <label for="nav-toggle-checkbox" class="nav-toggle-label">
+        <span class="nav-span"></span>
+    </label>
+    <section class="hero-section"> 
+      <h2>Affordable and fancy apparel with free and fast delivery</h2>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+         Alias deserunt magni 
+         totam molestias excepturi earum!</p>
+
+         <a href="#store" class="btn">View our store</a>
+    </section>
+
+<main class="shop-main">    
+<h2 class="prod-heading" id='store'>Our Products </h2>
+<section class="section-shop-products card-container">
+  <% items.merch.forEach(item=>{ %>
+    <article class="shop-product" data-item-id="<%=item.id%>">
+  <div class="img-container">
+  <img src="./shop images/<%=item.imageName%>" alt="" class="product-image">
+  <div class="view-product-btn"> <span>Quick View</span></div>
+</div>
+  <div class="card-text">
+  <h6 class="product-name"><%=item.name%></h6>
+  <h5>$ <span class="prod-price"><%=item.price%></span> </h5>
+  <span class="add-to-cartBtn">Add to cart <i class="fas fa-cart-plus"></i></span>
+</div>
+</article>
+<%  }) %>
+
+</article>
+</section>
+<div class="quick-view-overlay">
+  <article class="quick-view-container">
+
+      <!-- <i class="fas fa-times closeQuick-view"></i>
+    <div class="quick-viewImg-container">
+    <img src="./shop images/grey--tshirt.jpg" alt="" class="quick-img">
+   </div>
+    <div class="description-text">
+    <h2 class="prod-title">DJ Nav-Hoodie</h2>
+    <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, perferendis?</p>
+  
+    <div class="container">
+    <select name="sizes" id="sizes" class="select-sizes">
+      <option value="Pick a Size">Pick a Size</option>
+      <option value="S">S</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+      <option value="XXL">XXL</option>
+    </select>
+    <span class="add-to-cartBtn">Add to Cart</span>
+</div>
+  </div> -->
+</article> 
+ </div>
+  <div class="cart-overlay">
+<div class="cart">
+    <i class="fas fa-times close-cart"></i>
+    <h2>Your cart</h2>
+<div class="cart-items">  
+<!-- <article class="cart-item">
+  <img src="shop images/codeshirt-white.webp" alt="product"> 
+<div>
+    <h4>Navvy T-Shirt</h4>
+    <h5 class="item-price price">$29</h5>
+    <span class="remove-item">remove</span>
+</div>  
+<div class="prod-quantity">
+    <i class="fas fa-chevron-up"></i>
+    <p class="item-quantity">1</p>
+    <i class="fas fa-chevron-down"></i>
+</div>
+</article>
+<article class="cart-item">
+  <img src="shop images/codeshirt-duoble.webp" alt="product"> 
+<div>
+    <h4>DJ Nav T-Shirt</h4>
+    <h5 class="item-price price">$35</h5>
+    <span class="remove-item">remove</span>
+</div>  
+<div class="prod-quantity">
+    <i class="fas fa-chevron-up"></i>
+    <p class="item-quantity">2</p>
+    <i class="fas fa-chevron-down"></i>
+</div>
+</article>
+<article class="cart-item">
+  <img src="shop images/codehoodieblack.webp" alt="product"> 
+<div>
+    <h4>Nav Hoodie</h4>
+    <h5 class="item-price price">$29</h5>
+    <span class="remove-item">remove</span>
+</div>  
+<div class="prod-quantity">
+    <i class="fas fa-chevron-up"></i>
+    <p class="item-quantity">5</p>
+    <i class="fas fa-chevron-down"></i>
+</div>
+</article> -->
+</div>  
+<div class="cart-footer">
+  <h3>Your Total: $ <span class="total">0</span></h3>
+  <div class="btn checkout">Check Out</div>
+</div>
+</div>
+ </div>
+
+ <!-- contact form -->
+<div class="contain">
+
+  <div class="wrapper">
+
+    <div class="form">
+      <h4>Get In Touch</h4>
+      <h2 class="form-headline">Send us a message</h2>
+      <form id="submit-form" action="">
+        <p>
+          <input id="name" class="form-input" type="text" placeholder="Your Name*" required>
+          <small class="name-error"></small>
+        </p>
+        <p>
+          <input id="email" class="form-input" type="email" placeholder="Your Email*" required>
+          <small class="name-error"></small>
+        </p>
+        <p class="full-width">
+          <input id="company-name" class="form-input" type="number" placeholder="Phone Number*" required>
+          <small></small>
+        </p>
+        <p class="full-width">
+          <textarea  minlength="20" id="message" cols="30" rows="7" placeholder="Your Message*" required></textarea>
+          <small></small>
+        </p>
+        <p class="full-width">
+          <input type="checkbox" id="checkbox" name="checkbox" checked> Yes, I would like to receive communications by call from dj Nav team.
+        </p>
+        <p class="full-width">
+          <input type="submit" class="submit-btn" value="Submit">
+          <button class="reset-btn">Reset</button>
+        </p>
+      </form>
+    </div>
+
+    <div class="contacts contact-wrapper">
+
+      <ul>
+        <li>We've created and recorded music<span class="highlight-text-grey"> for 
+            hundreds</span> of artists. Ready to know
+          how we can make you the next successful singer?</li>
+        <span class="hightlight-contact-info">
+          <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:contact@djnav.com"> contact@djnav.com </a></li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+97470923424">+974 547 673 6367</a></li>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- contact Form -->
+
+<footer>
+  <h5 class="copyrite">&copy; Dj Nav. All rights reserved. 
+      designed  by <a href="http://herbertm.com">Herbert</a></h5>
+<div class="social-media-icons">   
+<a href="#"><i class="fab fa-twitter"></i> </a>
+<a href="#"> <i class="fab fa-facebook-f"></i></a>
+<a href="#"> <i class="fab fa-spotify"></i> </a>
+<a href="#"> <i class="fab fa-soundcloud"></i></a>
+<a href="#"> <i class="fab fa-instagram"></i></a>
+</div>
+</footer>
+</main>
+
+<script src="https://checkout.stripe.com/checkout.js" defer></script>
+<script>
+  var stripePublicKey = '<%=stripePublicKey%>';
+</script>
+<script src="shop.js" defer></script>
+</body>
+
+    

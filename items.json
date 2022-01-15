@@ -1,0 +1,40 @@
+{
+    "merch":[
+        {
+        "id":1,
+        "name": "dj nav Hoodie",
+        "imageName":"hoodie-blck.jpg",
+        "price":40
+        },
+        {
+            "id":2,
+            "name": "dj nav Hoodie-Grey",
+            "imageName":"hoodie-grey.jpg",
+            "price":60
+        },
+        {
+            "id":3,
+            "name": "dj nav hoodie",
+            "imageName":"codehoodieblack.webp",
+            "price":50
+        },
+        {
+            "id":4,
+            "name": "dj nav Cape",
+            "imageName":"blue-cape.jpg",
+            "price":99
+        },
+        {
+            "id":5,
+            "name": "dj nav T-shrit-grey",
+            "imageName":"grey--tshirt.jpg",
+            "price":33
+        },
+        {
+            "id":6,
+            "name": "Hoodie xclusive",
+            "imageName":"codehoodie-white.webp",
+            "price":29
+        }
+    ]
+}
