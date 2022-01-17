@@ -11,12 +11,13 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const stripe = require('stripe')(stripeSecretKey);
-
+const port = process.env.PORT || 3000
 
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.listen(3000);
+
+app.listen(port);
 
 //sending items.json data to shop.ejs and making a get request at route shop
 app.get('/shop', (req, res)=>{
@@ -53,7 +54,7 @@ app.post('/purchase' , (req, res)=>{
                 console.log(total);
             })
           stripe.charges.create({
-              amount:total,
+              amount:total, 
               currency: 'usd',
               source:req.body.stripeTokenId,
               description: 'from dj nav shop'
@@ -67,9 +68,12 @@ app.post('/purchase' , (req, res)=>{
         }
     })
 })
-app.get('/index',(req,res)=>{
-  res.render('index.ejs');
+// app.get('/index',(req,res)=>{
+//   res.render('index.ejs');
+// })
+//making a get request to home page
+app.get('/',(req,res)=>{
+    res.render('index.ejs');
 })
-
  
 

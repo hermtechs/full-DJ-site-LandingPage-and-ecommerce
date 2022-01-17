@@ -4,13 +4,15 @@
         "id":1,
         "name": "dj nav Hoodie",
         "imageName":"hoodie-blck.jpg",
-        "price":40
+        "price":40,
+        "status":"sold-out"
         },
         {
             "id":2,
             "name": "dj nav Hoodie-Grey",
             "imageName":"hoodie-grey.jpg",
-            "price":60
+            "price":60,
+            "status":"available"
         },
         {
             "id":3,
