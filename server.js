@@ -2,11 +2,21 @@
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-// console.log(stripeSecretKey)
 
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
-// console.log(stripePublicKey)
+
+const aws = require('aws-sdk'); //heroku config vars
+let s3 = new aws.S3({
+    stripePublicKeyHeroku: process.env.stripePublicKeyHeroku,
+    stripeSecretKeyHeroku: process.env.stripeSecretKeyHeroku
+});
+
+// const stripeSecretKey = process.env.STRIPE_SECRET_KEY; /*key stored in .env file locally*/
+const stripeSecretKey = s3.stripeSecretKeyHeroku   /*key stored in heroku config files*/
+
+// const stripePublicKey = process.env.STRIPE_PUBLIC_KEY; /*key stored in .env file locally*/
+const stripePublicKey = s3.stripePublicKeyHeroku    
+console.log(stripePublicKey);
+
 const express = require('express');
 const app = express();
 const fs = require('fs');
