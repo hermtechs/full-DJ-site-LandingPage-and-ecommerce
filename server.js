@@ -4,19 +4,12 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 
-const aws = require('aws-sdk'); //heroku config vars
-
-    let s3 = new aws.S3({
-        accessKeyId: process.env.S3_KEY,
-        secretAccessKey: process.env.S3_SECRET
-      });
-
 // const stripeSecretKey = process.env.STRIPE_SECRET_KEY; /*key stored in .env file locally*/
-const stripeSecretKey = process.env.STRIPE_PUBLIC_KEY_HEROKU  /*key stored in heroku config files*/
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY_HEROKU  /*key stored in heroku config files*/
 
 // const stripePublicKey = process.env.STRIPE_PUBLIC_KEY; /*key stored in .env file locally*/
-const stripePublicKey = process.env.STRIPE_SECRET_KEY_HEROKU   
-console.log(stripePublicKey);
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY_HEROKU   
+// console.log(stripePublicKey);
 
 const express = require('express');
 const app = express();
