@@ -2,14 +2,14 @@
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
-
-
 // const stripeSecretKey = process.env.STRIPE_SECRET_KEY; /*key stored in .env file locally*/
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY_HEROKU  /*key stored in heroku config files*/
+// const stripeSecretKey = process.env.STRIPE_SECRET_KEY_HEROKU  /*key stored in heroku config files*/
+const stripeSecretKey = "sk_test_51KCRd9HhLmpfEuqhcGLfFf6uXvMcJWSFTQqTjIyjxrfHat0oYBjpjX8IH1bdyY4BR68kgJA1mkpaFLFKAoqkPMgH002AoWiagQ"
 
-// const stripePublicKey = process.env.STRIPE_PUBLIC_KEY; /*key stored in .env file locally*/
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY_HEROKU   
-// console.log(stripePublicKey);
+// const stripeSecretKey = process.env.STRIPE_PUBLIC_KEY; /*key stored in .env file locally*/
+const stripePublicKey = "pk_test_51KCRd9HhLmpfEuqhe9seMzfM4k0eh4Fcvgf2u7mS1Pv3OeqzQNtfg4ZrWOzOmoWPruBBvlnzR6SzaDiH85TNdbAd00uuWnLRiy"
+// const stripePublicKey = process.env.STRIPE_PUBLIC_KEY_HEROKU   
+console.log(stripePublicKey, stripeSecretKey);
 
 const express = require('express');
 const app = express();
@@ -21,7 +21,12 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+
+
+
+
 app.listen(port);
+
 
 //sending items.json data to shop.ejs and making a get request at route shop
 app.get('/shop', (req, res)=>{
