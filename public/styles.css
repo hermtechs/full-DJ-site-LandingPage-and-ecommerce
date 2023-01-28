@@ -110,110 +110,103 @@ nav a:after{
 nav a:hover:after{
   transform: scale(1);
 }
-/* .full-screen-overlay{
-  position: fixed;
-  z-index: 1900;
-  background:red;
-  opacity: 0.5;
-  height: 100%;
-  width: 100%;
-  visibility: hidden;
-} */
-
+/* SECTIION SHOWCASE     */
 /* NAVIGATION BAR ON BIG SCREENS */
 @media screen and (min-width:720px){
- .nav-toggle-label{ display: none;}
-.cart-icon{ display: none;}
- header{
-   display: grid;
-   grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+  .nav-toggle-label{ display: none;}
+ 
+  header{
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr;
+  }
+  .logo{
+    grid-column: 2/3;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+ 
+  }
+  nav{
+    all: unset;
+    grid-column: 3/4;
+    margin-bottom: 0.95rem;
+  }
+  nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul >*{
+    margin-right: 1.5rem;
+  }
+ 
+  .show-case-text{
+    padding-top: 1.5rem;
+  }
  }
- .logo{  
-   grid-column: 2/3;
-   z-index: 3000;
-   display: flex;
-   align-items: center;
+ /* SECTIION SHOWCASE     */
+ .showcase {
+   padding: 4em 2em;
+   text-align: center;
+   /* height: 400px; */
+   position: relative;
+   z-index: 1000;
+   color: blue;
+   color: #fff;
+ }
+ .show-case-text {
+   z-index: 1000;
+   max-width: 500px;
+   margin: 0 auto;
+   margin-top: 2rem;
+ }
+ .show-case-text h2 {
+   font-size: clamp(1.5rem, 10vh, 1.8rem);
+   text-transform: uppercase;
+   line-height: 1.2;
+   margin-bottom: 1rem;
+ }
+ .show-case-text h3,
+ .heading {
+   font-size: clamp(1rem, 10vh, 1.3rem);
+   text-transform: uppercase;
+   line-height: 1.2;
+   margin-bottom: 1rem;
+   text-align: center;
+ }
+ 
+ .show-case p {
+   font-size: clamp(2rem, 10vh 3rem);
+   letter-spacing: 1px;
+   line-height: 1.2;
+   /* margin-bottom:10em; */
+ }
+ .btn {
+   display: inline-block;
+   letter-spacing: 4px;
+   padding: 0.1em 1.2em 0.1em 1.2em;
+   margin-top: 2rem;
+   border-radius: 0.1rem;
+   background: rgb(27, 48, 234);
+   text-transform: uppercase;
+   text-align: center;
+   font-weight: bold;
+   font-size: 1.1rem;
+   transition: 250ms ease-in;
    user-select: none;
+   color: #eee;
+   border-radius: 0.2rem;
  }
- nav{
-   all: unset;
-   grid-column: 3/4;
-   margin-bottom: 0.95rem;
+ .btn:hover {
+   transform: scale(1.05);
+   opacity: 0.8;
  }
- nav ul{
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
- nav ul >*{
-   margin-right: 1.5rem;
- }
-
- .show-case-text{
-   padding-top: 1.5rem;
- }
-}
-
-/* SECTIION SHOWCASE     */
-.showcase {
-  padding: 4em 2em;
-  text-align: center;
-  /* height: 400px; */
-  position: relative;
-  z-index: 1000;
-  color: blue;
-  color: #fff;
-}
-.show-case-text {
-  z-index: 1000;
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 1.5rem;
-}
-.show-case-text h2 {
-  font-size: clamp(1.5rem, 10vh, 1.8rem);
-  text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: 0.4em;
-}
-.show-case-text h3,
-.heading {
-  font-size: clamp(1rem, 10vh, 1.3rem);
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: 0.4em;
-  text-align: center;
-}
-
-.show-case p {
-  font-size: clamp(2rem, 10vh 3rem);
-  letter-spacing: 1px;
-  /* margin-bottom:10em; */
-}
-.btn {
-  display: inline-block;
-  letter-spacing: 4px;
-  padding: 0.12em 1em 0.12em 1em;
-  margin-top: 2rem;
-  border-radius: 4.5px;
-  background: rgb(13, 13, 112);
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  font-size: 0.82rem;
-  transition: 250ms ease-in;
-  user-select: none;
-}
-.btn:hover {
-  transform: scale(1.05);
-  opacity: 0.8;
-}
-.bg-video {
+ .bg-video {
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  height: 400px;
+  height: 450px;
   object-fit: cover;
   z-index: -1;
 }
@@ -223,70 +216,103 @@ nav a:hover:after{
   z-index: -1;
   top: 0;
   left: 0;
-  height: 400px;
+  height: 450px;
   background: rgb(13, 13, 153);
   mix-blend-mode: overlay;
 }
 
-/* LATEST VIDEOS SECTION */
-
-.video-section .heading {
-  margin-top: 4rem;
-  padding-top: 5rem;
+/* SECTION MUSIC AUDIOS */
+.latest-music{
+  background: #eee;
 }
-video {
-  max-width: 100%;
-}
-.video-section {
-  width: 100%;
-  height: 100%;
-  padding: 3.5rem 0.6rem 0.6rem 0.6rem;
-  color: blue;
-  background: rgb(224, 219, 219);
-}
-
-.video-container {
-  display: flex;
+.latest-music{
+  display: grid;
+  align-items: center;
+  justify-items: center;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-.video-container > * {
-  flex-basis: 45%;
-   min-width: 19rem;
-  max-width: 100rem;
-  margin-bottom: 1.4rem;
-}
-@media (min-width: 400px) {
-  .video-container > * {
-    min-width: 25rem;
-  }
-} 
-
-
-/* LISTEN ON SPOTIFY LINK */
-.listen-on-spotify {
-  background: rgb(11, 11, 29);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 1.5rem;
-  margin-top: -40px;
-}
-
-.listen-on-spotify h4{
+  background: rgb(3, 3, 34);
   color: #fff;
+  min-width: 300px;
+  max-width: 400px;
+  max-height: 520px;
+  margin: 8rem auto;
+  overflow-y: scroll;
+  padding-bottom: 1rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: thin;  /* Firefox */
+  position: relative;
+}
+.audio-player-container{
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #eee;
+  width: 300px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+  z-index: 1000;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.latest-music::-webkit-scrollbar {
+  scrollbar-width: thin;
+  /* background: rgb(7, 7, 143); */
+}
+.song-container{
+  display: flex ;
+  align-items: center;
+  justify-content:space-between;
+  margin-bottom: 0.2rem;
+  /* border-bottom: 2px solid #555; */
+  position: relative;
+  padding-bottom: 1rem; 
+}
+.song-container::after{
+  content: "";
+  height: 1px;
+  width: 95%;
+  position: absolute;
+  display: inline-block;
+  background: #595959;
+  top: 1.8rem;
+}
+.song-container span{
+  display: inline-block;
+  
+}
+.song-container >*+*{
+  margin-right:1rem;
+}
+.song-title{
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 0.2rem 0.2rem;
+  color: #eee;
+}
+/* .music-samples{
+
+} */
+/* audio controls */
+.play-pause-btn i{
+  font-size: 1.3rem;
 }
 
-.listen-on-spotify img{
-  max-width: 100%;
-  height: 80px;
+.section-titles {
+  padding: 2rem;
+  color: rgb(19, 19, 189);
+}
+.title2 {
+  margin-left: 2rem;
 }
 
 /* audio controls */
-.audio-player{
+/* .audio-player{
   padding: 1rem;
   position: sticky;
   background: radial-gradient(rgb(23, 12, 122),rgb(12, 12, 22));
@@ -299,7 +325,7 @@ video {
   color: #000;
   border-top: 2px solid rgb(47, 47, 56);
   margin-top: 0.5rem;
-  /* margin-bottom: -15rem; */
+
   transition: 200ms ease-in-out;
   transform-origin: bottom;
   display: none;
@@ -318,7 +344,6 @@ video {
 }
 .controls-audio{
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 .controls-audio>*{
@@ -348,8 +373,6 @@ video {
   background-color: red;
 }
 .progress-bar input[type=range]::-moz-range-thumb{
-  /* height: 50px; */
-  /* margin-top: .1px; */
   height: 4px;
   width: 4px;
   background-color: darkblue;
@@ -368,7 +391,7 @@ video {
   margin-right: 2em; 
   border-radius: .8em;
 }
-/* ALBUMS SECTION */
+/* ALBUMS SECTION 
 .albums-titles{background: rgb(204, 204, 235);}
 .music-audio-sections{
   display: flex;
@@ -377,7 +400,6 @@ video {
   padding-top: 1.5rem;
   position: relative;
   background: rgb(224, 224, 230);
-  /* background: rgb(217, 217, 235); */
   position: relative;
   box-shadow:1px inset #000 ;
   padding-left: 1.5rem;
@@ -433,7 +455,7 @@ color: rgb(5, 5, 68);
 }
 .title2 {
   margin-left: 2rem;
-}
+} */
 
 /* TOURS SECTION */
 .card-container {
@@ -521,17 +543,18 @@ color: rgb(5, 5, 68);
 
 /* ABOUT US SECTION */
 .about-section{
-  background: rgb(6, 13, 15);
+  /* background: rgb(3, 3, 34); */
+  background: #eee;
 }
 /* .about-section .section-titles{
   margin-left: -2rem;
 } */
 .about-us-text{
-color: rgb(185, 180, 180);  
+color: #333;
 text-align: left;
 margin-top: -3rem;
 padding: 4rem;
-max-width: 1000px;
+max-width: 800px;
 
 }
 .about-us-text p{
@@ -902,7 +925,7 @@ cursor: pointer;
 
 /* *****CONTACT FORM***** */
 .contain {
-  background-color: rgb(204, 204, 235);
+  background-color:#eee;
   max-width: 1170px;
   margin-left: auto;
   margin-right: auto;
@@ -910,7 +933,7 @@ cursor: pointer;
 }
 
 div.form {
-  background-color: rgb(204, 204, 235);
+  background-color: #eee;
 }
 .contact-wrapper {
   margin: auto 0;
@@ -928,17 +951,18 @@ div.form {
   display: block;
   width: 10%;
   padding-top: 10px;
-  border-bottom: 3px solid #22076d;
+  border-bottom: 3px solid #06087f;
 }
 
 .highlight-text {
-  color: #22076d;
+  color: #0f118b;
 }
 
 .hightlight-contact-info {
   font-weight: 700;
-  font-size: 22px;
+  font-size: 1.2rem;
   line-height: 1.5;
+  color: #06087f;
 }
 
 .highlight-text-grey {
@@ -947,6 +971,8 @@ div.form {
 
 .email-info {
     margin-top: 20px;
+  color: #06087f;
+
 }
 
 ::-webkit-input-placeholder { /* Chrome */
@@ -970,13 +996,13 @@ h3 {
 
 .form-input:focus,
 textarea:focus{
-  outline: 1.5px solid #22076d;
+  outline: 1.2px solid #101dd3;
 }
 
 .form-input,
 textarea {
   width: 100%;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #eee;
   border-radius: 5px;
 }
 

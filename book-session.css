@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,300&display=swap");
+:root {
+  --background-clr-nav: #0335dc;
+}
+html{
+  scroll-behavior: smooth;
+}
+body::-webkit-scrollbar {
+  width: .2em;
+}
+i{
+  user-select: none;
+}
+
+/* body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(14, 4, 51, 0.3);
+} */
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(48, 48, 189);
+  outline: 1px solid #432baf
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+img {
+  max-width: 100%;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+/* navigation styles start here */
+header{
+  background: var(--background-clr-nav);
+  text-align: center;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  padding: 1rem;
+}
+nav{
+  position: absolute;
+  background: var(--background-clr-nav);
+  opacity: 0.92;
+  width: 100%;
+  text-align: left;
+  padding: 0.2rem 0rem 2rem 5rem;
+  transition: 250ms ease-in-out;
+  transform: scale(0);
+  left: 0;
+}
+.cart-icon{
+ margin-left: 3.5em;
+ cursor: pointer;
+}
+nav ul li{
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.nav-toggle{
+  display: none; /*checkbox*/
+}
+
+#nav-toggle-checkbox:checked ~ nav{
+  transform: scale(1,1);
+}
+
+.nav-toggle-label{
+  position: fixed;
+  z-index: 2000;
+  padding: 1.85rem 1rem 1rem 3.5rem;
+}
+.nav-toggle-label span, 
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 1px;
+  width: 20px;
+  background: #fff;
+} 
+
+.nav-toggle-label span:before{
+  content: "";
+  position: relative;
+  top:7px
+}
+.nav-toggle-label span:after{
+  content: "";
+  position: relative;
+  bottom:7px;
+}
+nav a:after{
+  display: block;
+  content: "";
+  height: 2px;
+  width: 2.2rem;
+  background-color: #fff;
+  transition: 300ms ease-in-out;
+  transform: scale(0);
+  transform-origin: left;
+}
+nav a:hover:after{
+  transform: scale(1);
+}
+/* NAVIGATION BAR ON BIG SCREENS */
+@media screen and (min-width:720px){
+ .nav-toggle-label{ display: none;}
+.cart-icon{ display: none;}
+ header{
+   display: grid;
+   grid-template-columns: 1fr auto minmax(800px, 1fr) 1fr;
+   padding: 0rem;
+ }
+ .logo{  
+   grid-column: 2/3;
+   z-index: 3000;
+   display: flex;
+   align-items: center;
+   user-select: none;
+ }
+ nav{
+   all: unset;
+   grid-column: 3/4;
+   margin-bottom: 0.95rem;
+ }
+ nav ul{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ nav ul >*{
+   margin-right: 1.5rem;
+ }
+
+ .show-case-text{
+   padding-top: 1.5rem;
+ }
+}
+.book-now-btn{
+    border: 2px solid #b5bef9;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+}
+.hero{
+    padding: 6rem 1rem 3rem 1rem;
+    max-width: 100%;
+    background: #edeaef;
+    display: grid;
+    justify-content: center;
+}
+.hero h1, .hero p{
+    text-transform: uppercase;
+    margin: 0rem 3rem;
+    letter-spacing: 3px;
+    max-width: 800px;
+}
+.hero h1 span {
+    text-decoration-style:wavy;
+}
+.hero p{
+    text-transform: unset;
+    padding-top: 1rem;
+}
+.steps{
+  color: #8e9aeb;
+  margin-top: 1rem;
+}
+.step-no{
+  margin: unset !important ;
+  padding: 0.1rem 0.4rem !important;
+  border: 1px solid #fff;
+  background: #4a84e2;
+  border-radius: 50%;
+  color: #fff !important;
+}
+.appointments{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.appointments-container{
+    padding: 2rem;
+    border:1px solid #edeaef;
+    margin:1rem;
+    max-width: 800px;
+}
+.appointments-container .appointment{
+    border: 1px solid #edeaef;
+    padding: 1rem 2rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    transition: 250ms ease-in;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    display: block;
+}
+.appointment:hover{
+  background: #eee;
+}
+.date-container{
+  /* background: #4365fa; */
+  color: #045DE9;
+  font-weight: 900;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.times{
+  display: none;
+}
+
+/* .dropdown-hide{
+  display: none;
+} */
+
+  .dropdown-icon{
+  transition: 200ms ease-in;  
+  transform: scale(1,0);  
+  transform-origin: top;
+  position: absolute;
+  right: 0;
+  margin-top: -0.4rem;
+  padding:0rem 1rem 1rem 1.5rem;
+  color: #045DE9
+}
+.appointments-container .appointment #show{
+  display: block;
+}
+.show{
+  display: block !important;
+}
+
+.days-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* justify-items: center; */
+  align-items: flex-start;
+}
+.days-container>*{
+  max-width: 6.8rem;
+  border-radius: 0.5rem;
+  padding: 0.65rem;
+  background: #eee;
+  /* background: linear-gradient(to top, #bbbaff 0%, #d6e4f9 100%); */
+  margin: 0.5rem;
+}
+.days-container span{
+  padding: 0.3rem;
+  cursor: pointer;
+  display: block;
+  color:#08021e;
+  /* border:1px solid #135b9d; */
+}
+.btns-container{
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+.btns-container .previous{
+  margin-right: 4rem;
+}
+.btns-container>*{
+  background: #4850eb;
+  color: rgb(245, 240, 240);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.2em;
+}
+.btns-container i{
+  font-size: 0.8rem;
+}
+.selected-time{
+  background: #c7ffdd;
+  border-radius: 0.1em;
+}
+.choose-date{
+  display: none;
+}
+.confirmation-details{
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 250ms ease-in-out;
+  transform-origin: bottom right; 
+  transform: scale(1,0);
+}
+.details{
+  background: #045DE9;
+  padding: 1.5rem;
+  /* opacity: 0.98; */
+}
+.details>*{
+  margin: 1rem;
+}
+.details span{
+  padding-left: 1rem;
+  color: #9cf4b2;
+  /* font-weight: 400; */
+}
+.details button{
+  padding: 0.2rem 1rem;
+  outline: none;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+  border-radius: 0.2rem;
+  transition: 200ms ease-in;
+  font-size: 1.01rem;
+}
+.details .cancel{
+  background: #fca8a8;
+}
+.details .cancel:hover{
+  background: #f47777;
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.details .proceed{
+  background: #0ebf14;
+}
+.details .proceed:hover{
+  transform: scale(1.04);
+  opacity: 1;
+}
