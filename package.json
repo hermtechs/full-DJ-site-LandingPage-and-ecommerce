@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.1058.0",
+    "contentful": "^9.3.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "stripe": "^8.195.0"

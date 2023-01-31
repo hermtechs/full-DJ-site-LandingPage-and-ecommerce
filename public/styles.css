@@ -15,6 +15,7 @@ i{
 /* body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(14, 4, 51, 0.3);
 } */
+
  
 body::-webkit-scrollbar-thumb {
   background-color: rgb(48, 48, 189);
@@ -151,7 +152,6 @@ nav a:hover:after{
    /* height: 400px; */
    position: relative;
    z-index: 1000;
-   color: blue;
    color: #fff;
  }
  .show-case-text {
@@ -289,27 +289,66 @@ nav a:hover:after{
 .song-container >*+*{
   margin-right:1rem;
 }
+.song-container:hover{
+  cursor: pointer;
+}
 .song-title{
   font-size: 1rem;
   font-weight: 300;
   padding: 0.2rem 0.2rem;
   color: #eee;
 }
+
+.playingBarsParent .playing-bars {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 13px;
+  height: 13px;
+  margin-right: 0.5rem;
+}
+.playingBarsParent .playing-bars span {
+    width: 3px;
+    height: 100%;
+    background-color: #1221ed;
+    border-radius: 3px;
+    transform-origin: bottom;
+    animation: bounce 2.2s ease infinite alternate;
+    content: '';
+  }
+  .playingBarsParent .playing-bars span:nth-of-type(2) {
+    animation-delay: -2.2s; /* Start at the end of animation */
+  }
+.playingBarsParent .playing-bars span:nth-of-type(3) {
+  animation-delay: -3.7s; /* Start mid-way of return of animation */
+}
+
+  @keyframes bounce {
+    10% {
+      transform: scaleY(0.3); /* start by scaling to 30% */
+    }
+  
+    30% {
+      transform: scaleY(1); /* scale up to 100% */
+    }
+  
+    60% {
+      transform: scaleY(0.5); /* scale down to 50% */
+    }
+  
+    80% {
+      transform: scaleY(0.75); /* scale up to 75% */
+    }
+  
+    100% {
+      transform: scaleY(0.6); /* scale down to 60% */
+    }
+  }
+
 /* .music-samples{
 
 } */
-/* audio controls */
-.play-pause-btn i{
-  font-size: 1.3rem;
-}
 
-.section-titles {
-  padding: 2rem;
-  color: rgb(19, 19, 189);
-}
-.title2 {
-  margin-left: 2rem;
-}
 
 /* audio controls */
 /* .audio-player{
@@ -592,64 +631,6 @@ footer a {
   justify-content: center;
   align-items: center;
   padding: 0.4em;
-}
-
-/*MEDIA PLAYERS */
-/* video player */
-.video-player {
-  position: relative;
-}
-.controls-video {
-  height: 30px;
-  width: 100%;
-  /* background-color: rgb(0, 0, 0, 0.7); */
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  padding-right: 0.2em;
-}
-
-.video-player:hover .play-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.play-btn {
-  background: none;
-  border: 0;
-  outline: 0;
-  color: rgb(214, 34, 88);
-  position: absolute;
-  left: 45%;
-  bottom: 270%;
-  display: none;
-  font-size: 2em;
-  font-weight: 400;
-}
-.controls-video .video-progress-bar {
-  content: "";
-  height: 2px;
-  /* width: 100%; */ /*To Be Manipulated with Javascript*/
-  background-color: rgb(214, 34, 88);
-  font-weight: 400;
-  margin-top: 0.9em;
-  visibility: hidden;
-}
-.video-player:hover .controls-video .video-progress-bar {
-  visibility: visible;
-}
-button.play-btn::before {
-  content: "\f144";
-  font-family: "Font Awesome 5 Free";
-  padding-right: 0.2em;
-  cursor: pointer;
-}
-button.pause-btn::before {
-  content: "\f28b";
-  font-family: "Font Awesome 5 Free";
-  padding-right: 0.2em;
-  cursor: pointer;
 }
 
 /* SHOP STYLES */

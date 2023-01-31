@@ -9,8 +9,8 @@ const stripeSecretKey = "sk_test_51KCRd9HhLmpfEuqhcGLfFf6uXvMcJWSFTQqTjIyjxrfHat
 // const stripeSecretKey = process.env.STRIPE_PUBLIC_KEY; /*key stored in .env file locally*/
 const stripePublicKey = "pk_test_51KCRd9HhLmpfEuqhe9seMzfM4k0eh4Fcvgf2u7mS1Pv3OeqzQNtfg4ZrWOzOmoWPruBBvlnzR6SzaDiH85TNdbAd00uuWnLRiy"
 // const stripePublicKey = process.env.STRIPE_PUBLIC_KEY_HEROKU   
-console.log(stripePublicKey, stripeSecretKey);
 
+const contentful = require('contentful');
 const express = require('express');
 const app = express();
 const fs = require('fs');
@@ -77,12 +77,33 @@ app.post('/purchase' , (req, res)=>{
         }
     })
 })
-// app.get('/index',(req,res)=>{
-//   res.render('index.ejs');
-// })
-//making a get request to home page
-app.get('/',(req,res)=>{
-    res.render('index.ejs');
-})
- 
 
+
+ 
+//getting audio files data from contentful
+async function getAudioFrommCMS(){
+const client = await contentful.createClient({
+    space: 'w8pfw39hxfke',
+    accessToken: 'Vj6UZLn52yctUtux8DSOhHJqPoaCMsyZwQMl7Cj8LqA',
+  });
+const audioFilesEntry = await client.getEntries({content_type:'addAudioToHomepage'})
+                  .then(entries=>{
+
+const entryItems = entries.items;
+
+const audioFiles = entryItems.map(eachEntry=>{
+
+ const {audioTitle,audioFile,audioLength}=eachEntry.fields;
+
+ const audioSrc = `https:${audioFile.fields.file.url}`;
+
+ return {audioTitle,audioSrc,audioLength};
+})
+
+  //making a get request to home page
+app.get('/',(req,res)=>{
+    res.render('index.ejs', {audioFiles});
+})  
+     })
+}
+getAudioFrommCMS();

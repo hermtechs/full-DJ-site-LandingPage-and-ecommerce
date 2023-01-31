@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="./simplelightbox-master/src/simple-lightbox.scss">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/1.17.2/simplelightbox.min.css">
     <title>Dj.Nav official website</title>
     <link rel="stylesheet" href="styles.css">
@@ -52,69 +51,35 @@
 <section class="latest-music">
   <div class="audio-player-container">
       <span class="prev-btn"><i class="fa-solid fa-backward-step"></i></span>
-      <span class="play-pause-btn"><i class="fa-sharp fa-solid fa-circle-play"></i>
+      <span class="play-pause-btn"><i class="fa-sharp fa-solid fa-circle-play playBtnIcon"></i>
           <!-- <i class="fa-solid fa-circle-pause"></i> -->
       </span>
       <span class="next-btn"><i class="fa-solid fa-forward-step"></i></span>
   </div> 
+  <audio src=""></audio>
  <article class="music-samples">
-  <div class="song-container">
-      <span class="status"></span>
+  <!-- <div class="song-container">
       <h2 class="song-title">cold rain -dessert book</h2>
       <span class="song-duration">1:08</span>
+  </div> -->
+<% let songCounter = -1 %>
+  <% audioFiles.forEach(song=>{ %>
+  <% songCounter++ %>   
+  <div class="song-container" id="<%=song.audioSrc%>" data-song-num="<%=songCounter %> ">
+    <div class="playing-bars">
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+      <h2 class="song-title"><%=song.audioTitle%></h2>
+      <span class="song-duration"><%=song.audioLength%></span>
   </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
-  <div class="song-container">
-      <h2 class="song-title">cold rain -dessert book</h2>
-      <span class="song-duration">1:08</span>
-  </div>
+<%})%>
 
  </article>  
    
 </section>
+
 
 
 <section class="tours-section" id="events">
