@@ -298,6 +298,12 @@ nav a:hover:after{
   padding: 0.2rem 0.2rem;
   color: #eee;
 }
+.play-pause-btn i{
+  font-size: 1.4rem;
+}
+.prev-btn i, .next-btn i{
+  font-size: 1.15rem;
+}
 
 .playingBarsParent .playing-bars {
   position: relative;

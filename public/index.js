@@ -112,13 +112,17 @@ const allSongs = [...songContainers];
         }
     }
 
-    var counter = -1;
+    // var counter = -1;
+
 function playPause(){
+    // console.log(counter);
     if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
         // console.log(`yes ${audioElement.src}`)
         audioElement.src = allSongs[0].id;
         audioElement.play();
-        counter = 0;
+        // counter = 0;
+        var counter = allSongs.find(song=>song.id===audioElement.src).dataset.songNum;
+        // console.log(counter);
         audioElement.addEventListener('timeupdate',checkSongStatus)
     }
     else{
@@ -138,18 +142,22 @@ function playPause(){
 }
 
 function playNextSong(){
-    counter++;
+
+    // counter++;
     if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
         // console.log(`yes ${audioElement.src}`)
         audioElement.src = allSongs[0].id;
+        var counter = allSongs.find(song=>song.id===audioElement.src).dataset.songNum;
+        counter++;
         audioElement.play();
-        counter = 0;
         audioElement.addEventListener('timeupdate',checkSongStatus)
     }
     else{
       
     //    var currentlyPlayingSong = allSongs.find(song=>song.id===audioElement.src);
     //    var currentlyPlayingSongNumber = currentlyPlayingSong.dataset.songNum;
+    var counter = allSongs.find(song=>song.id===audioElement.src).dataset.songNum;
+       counter++ 
        if(counter<allSongs.length){
         const nextSong = allSongs.find(song=>song.dataset.songNum==counter);
         //    console.log(nextSongSrc);
@@ -172,7 +180,7 @@ function playNextSong(){
 }
 
 function playPreviousSong(){
-    counter=0;
+   
     if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
         // console.log(`yes ${audioElement.src}`)
         audioElement.src = allSongs[0].id;
@@ -180,6 +188,7 @@ function playPreviousSong(){
         audioElement.addEventListener('timeupdate',checkSongStatus)
     }
     else{
+        var counter = allSongs.find(song=>song.id===audioElement.src).dataset.songNum;
         if(counter>=1){
           counter--;  
           const prevSong = allSongs.find(song=>song.dataset.songNum==counter);
