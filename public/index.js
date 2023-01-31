@@ -81,6 +81,8 @@ humburger.addEventListener('click', ()=>{
 document.addEventListener('DOMContentLoaded', ()=>{
     songContainers.forEach(song=>song.addEventListener('click',playSong)) 
     playPauseBtn.addEventListener('click', playPause);   
+    NextBtn.addEventListener('click', playNextSong);
+    prevBtn.addEventListener('click', playPreviousSong);
     })
 
 const allSongs = [...songContainers];
@@ -106,18 +108,17 @@ const allSongs = [...songContainers];
         else{
             currentlyPlayingSong.classList.remove('playingBarsParent')
             playBtnIcon.classList.replace('fa-circle-pause','fa-circle-play');
-
+            playNextSong();
         }
     }
 
+    var counter = -1;
 function playPause(){
-    // console.log(audioElement.src);
-    // console.log(window.location.host);
-
     if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
         // console.log(`yes ${audioElement.src}`)
         audioElement.src = allSongs[0].id;
         audioElement.play();
+        counter = 0;
         audioElement.addEventListener('timeupdate',checkSongStatus)
     }
     else{
@@ -132,7 +133,69 @@ function playPause(){
         //  audioElement.addEventListener('timeupdate',checkSongStatus)
         console.log('not palying')
 
-        } 
-       
+        }   
+    }
+}
+
+function playNextSong(){
+    counter++;
+    if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
+        // console.log(`yes ${audioElement.src}`)
+        audioElement.src = allSongs[0].id;
+        audioElement.play();
+        counter = 0;
+        audioElement.addEventListener('timeupdate',checkSongStatus)
+    }
+    else{
+      
+    //    var currentlyPlayingSong = allSongs.find(song=>song.id===audioElement.src);
+    //    var currentlyPlayingSongNumber = currentlyPlayingSong.dataset.songNum;
+       if(counter<allSongs.length){
+        const nextSong = allSongs.find(song=>song.dataset.songNum==counter);
+        //    console.log(nextSongSrc);
+            nextSong.classList.add('playingBarsParent');
+            audioElement.src = nextSong.id;
+            audioElement.play();
+            audioElement.addEventListener('timeupdate', checkSongStatus);
+       } 
+       else{
+        counter=0;
+        const nextSong = allSongs.find(song=>song.dataset.songNum==counter);
+        //    console.log(nextSongSrc);
+            nextSong.classList.add('playingBarsParent');
+            audioElement.src = nextSong.id;
+            audioElement.play();
+            audioElement.addEventListener('timeupdate', checkSongStatus);
+       }
+
+    }
+}
+
+function playPreviousSong(){
+    counter=0;
+    if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
+        // console.log(`yes ${audioElement.src}`)
+        audioElement.src = allSongs[0].id;
+        audioElement.play();
+        audioElement.addEventListener('timeupdate',checkSongStatus)
+    }
+    else{
+        if(counter>=1){
+          counter--;  
+          const prevSong = allSongs.find(song=>song.dataset.songNum==counter);
+          //    console.log(nextSongSrc);
+              prevSong.classList.add('playingBarsParent');
+              audioElement.src = prevSong.id;
+              audioElement.play();
+              audioElement.addEventListener('timeupdate', checkSongStatus);
+        }
+        else{
+            const prevSong = allSongs.find(song=>song.dataset.songNum==counter);
+            //    console.log(nextSongSrc);
+                prevSong.classList.add('playingBarsParent');
+                audioElement.src = prevSong.id;
+                audioElement.play();
+                audioElement.addEventListener('timeupdate', checkSongStatus);
+        }
     }
 }
