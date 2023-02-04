@@ -51,12 +51,21 @@
 <section class="latest-music">
   <div class="audio-player-container">
       <span class="prev-btn"><i class="fa-solid fa-backward-step"></i></span>
-      <span class="play-pause-btn"><i class="fa-sharp fa-solid fa-circle-play playBtnIcon"></i>
-          <!-- <i class="fa-solid fa-circle-pause"></i> -->
+      <div class="play-pause-btn">
+        <i class="fa-sharp fa-solid fa-circle-play playBtnIcon"></i>
+          <i class="fa-solid fa-circle-pause pauseBtnIcon"></i>
+      </div>
+      <span class="next-btn"><i class="fa-solid fa-forward-step"></i>
       </span>
-      <span class="next-btn"><i class="fa-solid fa-forward-step"></i></span>
+    
   </div> 
+  <div class="audio-timer">
+    <span class="current-time"></span> 
+    <span class="duration"></span>
+  </div>
+
   <audio src=""></audio>
+
  <article class="music-samples">
   <!-- <div class="song-container">
       <h2 class="song-title">cold rain -dessert book</h2>

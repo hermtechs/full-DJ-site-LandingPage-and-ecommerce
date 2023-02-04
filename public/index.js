@@ -11,8 +11,11 @@ const NextBtn = document.querySelector('.next-btn')
 const prevBtn = document.querySelector('.prev-btn')
 const audioElement = document.getElementsByTagName('audio')[0];
 const playBtnIcon = document.querySelector('.playBtnIcon');
+const pauseBtnIcon = document.querySelector('.pauseBtnIcon');
 // console.log(playBtnIcon)
 const songs = document.querySelector('.song-title');
+const durationElement = document.querySelector('.duration');
+const currentTimeElement = document.querySelector('.current-time')
 
 // NAVIGATION MENU
 //Rotating the humburger menu on  Click
@@ -97,17 +100,23 @@ const allSongs = [...songContainers];
 
    function checkSongStatus(){
         const updatedTime = audioElement.currentTime;
+
         const songDuration = audioElement.duration;
+        
         let  currentlyPlayingSong = allSongs.find(song=>song.id===audioElement.src);
         allSongs.forEach(song=>song.classList.remove('playingBarsParent'));
         // currentlyPlayingSong.classList.add('playingBarsParent');
         if(updatedTime!=songDuration){
             currentlyPlayingSong.classList.add('playingBarsParent'); 
-            playBtnIcon.classList.replace('fa-circle-play','fa-circle-pause');
+            playBtnIcon.style.display = 'none';
+            pauseBtnIcon.style.display = 'block'
+            // durationElement.innerText = parseInt(songDuration);
+            // currentTimeElement.innerText =`${parseInt(updatedTime)} /`;
         }
         else{
             currentlyPlayingSong.classList.remove('playingBarsParent')
-            playBtnIcon.classList.replace('fa-circle-pause','fa-circle-play');
+            playBtnIcon.style.display = 'block';
+            pauseBtnIcon.style.display = 'none'
             playNextSong();
         }
     }
@@ -115,6 +124,10 @@ const allSongs = [...songContainers];
     // var counter = -1;
 
 function playPause(){
+    // playBtnIcon.style.display?"none":playBtnIcon.style.display="block";
+    // pauseBtnIcon.style.display?"none":playBtnIcon.style.display="block";
+    
+
     // console.log(counter);
     if(`${audioElement.src}` == `${window.location.protocol}//${window.location.host}/`){
         // console.log(`yes ${audioElement.src}`)
@@ -123,12 +136,17 @@ function playPause(){
         // counter = 0;
         var counter = allSongs.find(song=>song.id===audioElement.src).dataset.songNum;
         // console.log(counter);
+        playBtnIcon.style.cssText = 'display:none !important';
+        pauseBtnIcon.style.cssText = 'display:block !important';
         audioElement.addEventListener('timeupdate',checkSongStatus)
     }
     else{
         if(audioElement.paused){
 
         audioElement.play();
+   
+        // playBtnIcon.style.cssText = 'display:block !important';
+        // pauseBtnIcon.style.cssText = 'display:none !important';
         console.log('playing')
         // audioElement.addEventListener('timeupdate',checkSongStatus)   
         }
@@ -136,6 +154,11 @@ function playPause(){
          audioElement.pause(); 
         //  audioElement.addEventListener('timeupdate',checkSongStatus)
         console.log('not palying')
+        // playBtnIcon.style.cssText = 'display:none !important';;
+        // pauseBtnIcon.style.cssText = 'display:block !important';
+        // console.log("playBtnIcon:" + playBtnIcon.style.display)
+        // console.log("pause btn:" + pauseBtnIcon.style.display)
+
 
         }   
     }

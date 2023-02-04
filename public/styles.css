@@ -304,7 +304,12 @@ nav a:hover:after{
 .prev-btn i, .next-btn i{
   font-size: 1.15rem;
 }
-
+.pauseBtnIcon{
+  display: none;
+}
+.playBtnIcon{
+  display: block;
+}
 .playingBarsParent .playing-bars {
   position: relative;
   display: flex;
@@ -350,7 +355,11 @@ nav a:hover:after{
       transform: scaleY(0.6); /* scale down to 60% */
     }
   }
-
+.audio-timer{
+  font-size: 0.7rem;
+  font-weight: 400;
+  color:#a49af1;
+}
 /* .music-samples{
 
 } */
