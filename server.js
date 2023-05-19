@@ -1,7 +1,7 @@
 
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config();
-}
+// if(process.env.NODE_ENV !== 'production'){
+//     require('dotenv').config();
+// }
 // const stripeSecretKey = process.env.STRIPE_SECRET_KEY; /*key stored in .env file locally*/
 // const stripeSecretKey = process.env.STRIPE_SECRET_KEY_HEROKU  /*key stored in heroku config files*/
 const stripeSecretKey = "sk_test_51KCRd9HhLmpfEuqhcGLfFf6uXvMcJWSFTQqTjIyjxrfHat0oYBjpjX8IH1bdyY4BR68kgJA1mkpaFLFKAoqkPMgH002AoWiagQ"
